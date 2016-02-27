@@ -410,7 +410,7 @@ llv6_ntoa(ifaceid)
 {
     static char b[64];
 
-    sprintf(b, "fe80::%s", eui64_ntoa(ifaceid));
+    snprintf(b, sizeof(b),"fe80::%s", eui64_ntoa(ifaceid));
     return b;
 }
 
@@ -1388,7 +1388,7 @@ ipv6cp_script(script)
     char strspeed[32], strlocal[32], strremote[32];
     char *argv[8];
 
-    sprintf(strspeed, "%d", baud_rate);
+    snprintf(strspeed, sizeof(strspeed), "%d", baud_rate);
     strcpy(strlocal, llv6_ntoa(ipv6cp_gotoptions[0].ourid));
     strcpy(strremote, llv6_ntoa(ipv6cp_hisoptions[0].hisid));
 
